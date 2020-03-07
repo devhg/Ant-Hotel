@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 基本信息 -->
+    <name>ant-parent</name>
+    <packaging>pom</packaging>
+    <description>Ant-Hotel project</description>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 项目说明：这里作为聚合工程的父工程 -->
+    <groupId>com.ant-hotel</groupId>
+    <artifactId>ant-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- 继承说明：这里继承SpringBoot提供的父工程 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <!-- 模块说明：这里声明多个子模块 -->
+    <modules>
+        <module>../Ant-hotel-common</module>
+        <module>../Ant-hotel-admin</module>
+        <module>../Ant-hotel-web</module>
+        <module>../Ant-face-verification</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <hutool.version>4.1.5</hutool.version>
+        <jackson.version>2.8.8</jackson.version>
+        <fastjson.version>1.2.10</fastjson.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.ant-hotel</groupId>
+                <artifactId>Ant-hotel-web</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ant-hotel</groupId>
+                <artifactId>Ant-hotel-common</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ant-hotel</groupId>
+                <artifactId>Ant-hotel-admin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ant-hotel</groupId>
+                <artifactId>Ant-face-verification</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <!--    <dependencies>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-freemarker</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-web</artifactId>-->
+    <!--        </dependency>-->
+    <!--        &lt;!&ndash;数据库连接jdbc依赖&ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-jdbc</artifactId>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.alibaba</groupId>-->
+    <!--            <artifactId>druid</artifactId>-->
+    <!--            <version>1.1.10</version>-->
+    <!--        </dependency>-->
+    <!--        &lt;!&ndash; 超级工具类 hutool &ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>cn.hutool</groupId>-->
+    <!--            <artifactId>hutool-all</artifactId>-->
+    <!--            <version>${hutool.version}</version>-->
+    <!--        </dependency>-->
+    <!--        &lt;!&ndash; mybatis的orm插件 &ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.baomidou</groupId>-->
+    <!--            <artifactId>mybatisplus-spring-boot-starter</artifactId>-->
+    <!--            <version>1.0.4</version>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>com.baomidou</groupId>-->
+    <!--            <artifactId>mybatis-plus</artifactId>-->
+    <!--            <version>2.1.6</version>-->
+    <!--        </dependency>-->
+    <!--        &lt;!&ndash;log4j&ndash;&gt;-->
+    <!--        <dependency>-->
+    <!--            <groupId>log4j</groupId>-->
+    <!--            <artifactId>log4j</artifactId>-->
+    <!--            <version>1.2.17</version>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-devtools</artifactId>-->
+    <!--            <scope>runtime</scope>-->
+    <!--            <optional>true</optional>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>mysql</groupId>-->
+    <!--            <artifactId>mysql-connector-java</artifactId>-->
+    <!--            <scope>runtime</scope>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.projectlombok</groupId>-->
+    <!--            <artifactId>lombok</artifactId>-->
+    <!--            <optional>true</optional>-->
+    <!--        </dependency>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework.boot</groupId>-->
+    <!--            <artifactId>spring-boot-starter-test</artifactId>-->
+    <!--            <scope>test</scope>-->
+    <!--            <exclusions>-->
+    <!--                <exclusion>-->
+    <!--                    <groupId>org.junit.vintage</groupId>-->
+    <!--                    <artifactId>junit-vintage-engine</artifactId>-->
+    <!--                </exclusion>-->
+    <!--            </exclusions>-->
+    <!--        </dependency>-->
+    <!--    </dependencies>-->
+
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.springframework.boot</groupId>-->
+    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+
+</project>

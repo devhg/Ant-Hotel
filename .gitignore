@@ -1,0 +1,4 @@
+# Project exclude paths
+/Ant-face-verification/target/
+/Ant-hotel-common/target/
+/Ant-hotel-web/target/
