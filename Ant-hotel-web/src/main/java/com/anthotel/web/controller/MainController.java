@@ -15,11 +15,12 @@ import com.anthotel.web.mapper.FaceInfoMapper;
 import com.arcsoft.face.FaceInfo;
 import com.arcsoft.face.toolkit.ImageFactory;
 import com.arcsoft.face.toolkit.ImageInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,7 @@ import java.util.List;
  */
 
 @Controller
+@Api(tags = "用户管理相关接口")
 public class MainController {
     public final static Logger logger = LoggerFactory.getLogger(MainController.class);
 
@@ -51,21 +53,27 @@ public class MainController {
     private FaceInfoMapper faceInfoMapper;
 
 
-    @RequestMapping(value = "/")
-    public String index(Model model) {
-        System.out.println(111);
-        faceEngineService.test();
-        System.out.println(222);
-        model.addAttribute("name", "lisi");
-        model.addAttribute("age", "lisi");
-        return "index";
+    @GetMapping("welcome")
+    @ApiOperation("主页")
+    public String index(@RequestParam(value = "orderId", required = true) String orderId) {
+        System.out.println("orderId = " + orderId);
+        return "welcome";
     }
+
+    @GetMapping("a")
+    @ApiOperation("人脸识别支付")
+    public String pay() {
+
+        return "a";
+    }
+
 
     /*
     人脸添加
      */
-    @PostMapping("/faceAdd")
+    @PostMapping("faceAdd")
     @ResponseBody
+    @ApiOperation("人脸识别接口")
     public ResultKit faceAdd(@RequestBody FormData formData) {
         System.out.println(formData);
         try {
