@@ -60,13 +60,18 @@ public class MainController {
         return "welcome";
     }
 
-    @GetMapping("a")
+    @GetMapping("pay")
     @ApiOperation("人脸识别支付")
-    public String pay() {
-
-        return "a";
+    public String pay(@RequestParam("orderId") String orderId) {
+        System.out.println("orderId = " + orderId);
+        return "pay";
     }
 
+    @GetMapping("test")
+    @ResponseBody
+    public String test() {
+        return "pay";
+    }
 
     /*
     人脸添加
@@ -159,23 +164,6 @@ public class MainController {
         }
         return Results.newFailedResult(ErrorCodeEnum.FACE_DOES_NOT_MATCH);
     }
-
-
-    @RequestMapping(value = "/detectFaces", method = RequestMethod.POST)
-    @ResponseBody
-    public List<FaceInfo> detectFaces(String image) throws IOException {
-        byte[] decode = Base64.decode(image);
-        InputStream inputStream = new ByteArrayInputStream(decode);
-        ImageInfo imageInfo = ImageFactory.getRGBData(inputStream);
-
-        if (inputStream != null) {
-            inputStream.close();
-        }
-        List<FaceInfo> faceInfoList = faceEngineService.detectFaces(imageInfo);
-
-        return faceInfoList;
-    }
-
 
     private String base64Process(String base64Str) {
         if (!StringUtils.isEmpty(base64Str)) {

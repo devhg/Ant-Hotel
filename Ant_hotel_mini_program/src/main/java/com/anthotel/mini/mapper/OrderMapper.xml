@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anthotel.mini.mapper.OrderMapper">
+
+    <insert id="insertOrder" parameterType="reserveOrder">
+        insert into
+        reserve_record(orderId, hotelId, openId, uname, phoneNumber, roomType, reserveTime, preFee, status, startTime, endTime)
+        values (#{orderId}, #{hotelId}, #{openId}, #{uname}, #{phoneNumber}, #{roomType}, #{reserveTime},
+        #{preFee}, 0, #{startTime}, #{endTime})
+    </insert>
+
+    <select id="getOrders" parameterType="string" resultType="reserveOrder">
+        select orderId, hotelId, roomType, preFee, status, startTime, endTime
+        from reserve_record where openId=#{openId}
+    </select>
+</mapper>

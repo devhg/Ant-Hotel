@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anthotel.mini.mapper.HotelMapper">
+
+    <select id="fetchHotelList" resultType="hotel">
+        select * from hotel_list
+    </select>
+
+    <select id="getHotelRoomInfo" parameterType="string" resultType="hotelRoom">
+        select * from hotel_room_info where hotelId=#{hid}
+    </select>
+</mapper>

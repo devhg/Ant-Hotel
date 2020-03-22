@@ -1,4 +1,4 @@
-package com.anthotel.web;
+package com.anthotel.mini;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -6,21 +6,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
-
 /**
  * @Author: Devhui
- * @Date: 2020/3/6 16:57
+ * @Date: 2020/3/17 20:12
  * @Email: devhui@ihui.ink
  * @Version: 1.0
  */
-
-// 加入scanBasePackages 是为能够注入其他模块中的对象
-@SpringBootApplication(scanBasePackages = {"com.anthotel.face", "com.anthotel.web", "com.anthotel.admin"})
-@MapperScan({"com.anthotel.web.mapper"})
+@SpringBootApplication(scanBasePackages = {"com.anthotel.mini"})
+@MapperScan({"com.anthotel.mini.mapper"})
 @EnableTransactionManagement
-public class WebApplication {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

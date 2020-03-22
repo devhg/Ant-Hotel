@@ -3,11 +3,11 @@
 
 <head>
     <title>Ant Hotel 住宿信息人员登记系统</title>
-    <script src="/js/utils.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -86,9 +86,12 @@
     <p>Copyright © 2020 Ant Hotel. All Rights Reserved.</p>
 </div>
 <!-- 导入相关的js文件 -->
+<script src="/js/utils.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="/js/main.js"></script>
 <script>
+    let orderId = getRequest().orderId;
+
     function submitForm() {
         if ($('#check').prop('checked')) {
             let formData = {
@@ -117,7 +120,20 @@
                             title: "识别成功",
                             text: text.data,
                             icon: "success",
-                            button: "跳转支付",
+                            buttons: {
+                                butto1: {
+                                    text: "已付定金",
+                                    value: false
+                                },
+                                button2: {
+                                    text: "跳转支付",
+                                    value: true
+                                }
+                            }
+                        }).then(function (value) {
+                            if (value) {
+                                window.location.href = "/pay?orderId=" + orderId;
+                            }
                         });
                     } else {
                         swal({
@@ -131,9 +147,15 @@
                 error: function (error) {
                     alert(JSON.stringify(error))
                 }
-            });
+            })
+            ;
         } else {
-            alert("请阅读并通过相关协议")
+            swal({
+                title: "小提示",
+                text: "请阅读并通过相关协议",
+                icon: "warning",
+                button: "确定",
+            })
         }
 
     }
@@ -152,73 +174,6 @@
         return canvas.toDataURL();
     }
 </script>
-<style>
-    body {
-        background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
-    }
-
-    h1 {
-        color: rgb(88, 139, 216);
-    }
-
-    .header {
-        margin: 100px auto;
-        text-align: center;
-    }
-
-    .main {
-        width: 1150px;
-        margin: 0 auto;
-        position: relative;
-    }
-
-    .video {
-        position: relative;
-        float: left;
-        width: 500px;
-        height: 470px;
-    }
-
-    .protocol {
-        position: absolute;
-        bottom: 0px;
-        left: 30px;
-        color: red;
-    }
-
-    .form {
-        width: 500px;
-        height: 500px;
-        float: right;
-        margin: 30px;
-        position: relative;
-    }
-
-    .form img {
-        width: 100px;
-        height: 100px;
-        margin: 5px auto;
-    }
-
-    .footer {
-        background-color: #eaebeb;
-
-        padding: 20px;
-        margin: 0 auto;
-        position: fixed;
-        text-align: center;
-        width: 100%;
-        bottom: 0;
-    }
-
-    /*video和canvas标签位置重合使显示出来的人脸模型和视频重合*/
-    #webcam,
-    #overlay {
-        position: absolute;
-        top: 10px;
-        left: 30px;
-    }
-</style>
 </body>
 
 </html>

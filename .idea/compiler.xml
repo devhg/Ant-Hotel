@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Ant-hotel-web" />
-        <module name="Ant-face-verification" />
-        <module name="Ant-hotel-common" />
+        <module name="Ant_hotel_mini_program" />
         <module name="Ant-hotel-admin" />
+        <module name="Ant-hotel-web" />
+        <module name="Ant-hotel-common" />
+        <module name="Ant-face-verification" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
       <module name="ant-parent" target="1.8" />
       <module name="Ant-parent" target="1.5" />
       <module name="Ant-web" target="1.8" />
+      <module name="Ant_hotel_mini_program" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -31,6 +33,7 @@
       <module name="Ant-hotel-common" options="-parameters" />
       <module name="Ant-hotel-web" options="-parameters" />
       <module name="Ant-web" options="-parameters" />
+      <module name="Ant_hotel_mini_program" options="-parameters" />
       <module name="ant-parent" options="-parameters" />
     </option>
   </component>

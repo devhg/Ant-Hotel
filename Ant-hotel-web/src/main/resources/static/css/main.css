@@ -1,0 +1,69 @@
+body {
+    background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+}
+
+h1 {
+    color: rgb(88, 139, 216);
+}
+
+.header {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.main {
+    width: 1150px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.video {
+    position: relative;
+    float: left;
+    width: 500px;
+    height: 470px;
+}
+
+.protocol {
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    color: red;
+}
+
+.form {
+    width: 500px;
+    height: 500px;
+    float: right;
+    margin: 30px;
+    position: relative;
+}
+
+.form img {
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+}
+
+.footer {
+    background-color: #eaebeb;
+
+    padding: 20px;
+    margin: 0 auto;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+.swal-footer {
+    text-align: center !important;
+}
+
+/*video和canvas标签位置重合使显示出来的人脸模型和视频重合*/
+#webcam,
+#overlay {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}

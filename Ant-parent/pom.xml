@@ -26,6 +26,7 @@
         <module>../Ant-hotel-admin</module>
         <module>../Ant-hotel-web</module>
         <module>../Ant-face-verification</module>
+        <module>../Ant_hotel_mini_program</module>
     </modules>
 
     <properties>
