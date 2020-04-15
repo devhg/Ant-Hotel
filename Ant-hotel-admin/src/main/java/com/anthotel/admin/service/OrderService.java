@@ -1,5 +1,9 @@
 package com.anthotel.admin.service;
 
+import com.anthotel.admin.dto.ReserveRecord;
+
+import java.util.List;
+
 /**
  * @Author: Devhui
  * @Date: 2020/3/16 19:42
@@ -7,4 +11,5 @@ package com.anthotel.admin.service;
  * @Version: 1.0
  */
 public interface OrderService {
+    List<ReserveRecord> fetchLiveOrderList();
 }

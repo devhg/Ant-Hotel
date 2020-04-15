@@ -3,6 +3,7 @@ package com.anthotel.web.Interceptor;
 import com.alibaba.fastjson.JSON;
 import com.anthotel.common.base.ResultKit;
 import com.anthotel.common.base.TokenConstant;
+import com.anthotel.common.utils.MainUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,18 +28,17 @@ public class MainInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler)
             throws Exception {
         System.out.println("开始拦截.........");
-//        String token = req.getHeader(TokenConstant.HEADER_TOKEN); // Authorization
-//        System.out.println(token);
-//        ResultKit checkToken = MainUtils.checkToken(token);
-//        System.out.println(checkToken);
-//        if (checkToken.getCode() == 200) {
-//            System.out.println("true");
-//            return true;
-//        } else {
-//            returnJson(checkToken, resp); // 返回token无效结果
-//            return false;
-//        }
-        return true;
+        String token = req.getHeader(TokenConstant.HEADER_TOKEN); // Authorization
+        System.out.println(token);
+        ResultKit checkToken = MainUtils.checkToken(token);
+        System.out.println(checkToken);
+        if (checkToken.getCode() == 200) {
+            System.out.println("true");
+            return true;
+        } else {
+            returnJson(checkToken, resp); // 返回token无效结果
+            return false;
+        }
     }
 
     /**
@@ -72,6 +72,7 @@ public class MainInterceptor implements HandlerInterceptor {
         PrintWriter writer = null;
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json; charset=utf-8");
+        response.setStatus(403);
         try {
             writer = response.getWriter();
             String jsonString = JSON.toJSONString(resultKit);

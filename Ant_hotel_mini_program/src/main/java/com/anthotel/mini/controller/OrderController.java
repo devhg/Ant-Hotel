@@ -16,6 +16,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Devhui
@@ -62,7 +63,8 @@ public class OrderController {
         ResultKit<List> resultKit = new ResultKit<>();
         System.out.println("openId = " + openId);
 
-        List<ReserveOrder> orders = orderService.getOrders(openId);
+        List<Map> orders = orderService.getOrders(openId);
+        System.out.println(orders);
         if (orders != null) {
             resultKit.setMessage("成功");
             resultKit.setCode(200);

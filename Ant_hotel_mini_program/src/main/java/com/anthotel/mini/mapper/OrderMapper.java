@@ -6,6 +6,7 @@ import com.anthotel.mini.dto.ReserveOrder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Devhui
@@ -19,5 +20,5 @@ public interface OrderMapper {
 
     int insertOrder(ReserveOrder order);
 
-    List<ReserveOrder> getOrders(String openId);
+    List<Map> getOrders(String openId);
 }

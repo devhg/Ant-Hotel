@@ -39,7 +39,7 @@ import java.util.List;
  */
 
 @Controller
-@Api(tags = "用户管理相关接口")
+@Api(tags = "人证识别入住相关接口")
 public class MainController {
     public final static Logger logger = LoggerFactory.getLogger(MainController.class);
 

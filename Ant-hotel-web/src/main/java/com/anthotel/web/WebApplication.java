@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 
 // 加入scanBasePackages 是为能够注入其他模块中的对象
 @SpringBootApplication(scanBasePackages = {"com.anthotel.face", "com.anthotel.web", "com.anthotel.admin"})
-@MapperScan({"com.anthotel.web.mapper"})
+@MapperScan({"com.anthotel.admin.mapper", "com.anthotel.web.mapper"})
 @EnableTransactionManagement
 public class WebApplication {
     public static void main(String[] args) {

@@ -19,5 +19,5 @@ public class TokenConstant {
     public static final Integer JWT_ERRCODE_FAIL = 85202;
     /****************************************************************/
     //请求头
-    public static final String HEADER_TOKEN = "Authorization";
+    public static final String HEADER_TOKEN = "Access-Token";
 }
