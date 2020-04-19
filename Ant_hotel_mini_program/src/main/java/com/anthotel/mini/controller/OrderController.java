@@ -36,11 +36,8 @@ public class OrderController {
     @PostMapping("reserve")
     ResultKit reserve(@RequestBody ReserveOrder order) {
         Date date = new Date();
-        int year = DateUtil.getYear(date);
-        int month = DateUtil.getMonth(date);
-        int day = DateUtil.getDay(date);
         StringBuilder stringBuilder = new StringBuilder();
-        StringBuilder append = stringBuilder.append(year).append(month).append(day).append(date.getTime());
+        StringBuilder append = stringBuilder.append(4).append(date.getTime());
 
         order.setOrderId(append.toString());
         order.setReserveTime(date);

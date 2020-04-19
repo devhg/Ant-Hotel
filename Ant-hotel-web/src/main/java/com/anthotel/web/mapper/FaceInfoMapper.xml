@@ -2,26 +2,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.anthotel.web.mapper.FaceInfoMapper">
-<!--    <resultMap id="userFace" type="com.anthotel.face.dto.UserFaceInfo">-->
-<!--        <id column="id" property="id" javaType="int"/>-->
-<!--        <result column="group_id" property="groupId" javaType="java.lang.Integer"/>-->
-<!--        <result column="face_id" property="faceId" javaType="String"/>-->
-<!--        <result column="phone_number" property="phoneNumber" javaType="String"/>-->
-<!--        <result column="create_time" property="createTime" javaType="java.util.Date"/>-->
-<!--        <result column="face_feature" property="faceFeature"/>-->
-<!--    </resultMap>-->
 
-<!--    <resultMap id="userFace2" type="com.itboyst.facedemo.dto.FaceUserInfo">-->
-<!--        <id column="id" property="id" javaType="int"/>-->
-<!--        <result column="group_id" property="groupId" javaType="java.lang.Integer"/>-->
-<!--        <result column="face_id" property="faceId" javaType="String"/>-->
-<!--        <result column="phone_number" property="phoneNumber" javaType="String"/>-->
-<!--        <result column="create_time" property="createTime" javaType="java.util.Date"/>-->
-<!--        <result column="face_feature" property="faceFeature"/>-->
-<!--    </resultMap>-->
-
-    <insert id="insertUserFaceInfo" parameterType="com.anthotel.face.dto.UserFaceInfo" >
-            INSERT INTO user_face_info (group_id,face_id,name,face_feature) VALUES (1,#{faceId},#{name},#{faceFeature})
+    <insert id="insertUserFaceInfo" parameterType="com.anthotel.face.dto.UserFaceInfo">
+        INSERT INTO user_face_info(userId, group_id, face_id, name, phone_number, face_feature)
+        VALUES (#{userId}, 1, #{faceId}, #{name}, #{phoneNumber}, #{faceFeature})
     </insert>
 
 </mapper>

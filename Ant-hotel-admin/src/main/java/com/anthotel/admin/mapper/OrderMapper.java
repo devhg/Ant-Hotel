@@ -1,5 +1,6 @@
 package com.anthotel.admin.mapper;
 
+import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,10 @@ import java.util.List;
 @Repository
 public interface OrderMapper {
     List<ReserveRecord> fetchLiveOrderList();
+
+    ReserveRecord getLivenOrder(String id);
+
+    List<CanteenRecord> fetchCanteenOrderList();
+
+    CanteenRecord getCanteenOrder(String id);
 }

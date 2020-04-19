@@ -115,7 +115,7 @@
                 async: false,
                 success: function (text) {
                     console.log(text);
-                    if (text.code == 0) {
+                    if (text.code == 200) {
                         swal({
                             title: "识别成功",
                             text: text.data,

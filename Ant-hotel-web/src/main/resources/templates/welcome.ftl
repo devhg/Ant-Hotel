@@ -3,7 +3,7 @@
 
 <head>
     <title>Ant Hotel 住宿信息人员登记系统</title>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -98,6 +98,7 @@
                 idImage: getBase64ImageDataURL(document.getElementById("pic")),
                 name: $('#name').val(),
                 userId: $('#id').val(),
+                orderId: orderId,
                 address: $('#address').val(),
                 dateTo: $('#date').val(),
                 phone: $('#phone').val(),
@@ -115,7 +116,7 @@
                 async: false,
                 success: function (text) {
                     console.log(text);
-                    if (text.code == 0) {
+                    if (text.code == 200) {
                         swal({
                             title: "识别成功",
                             text: text.data,

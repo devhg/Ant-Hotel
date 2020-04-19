@@ -13,6 +13,7 @@ h1 {
 
 .main {
     width: 1150px;
+    height: 800px;
     margin: 0 auto;
     position: relative;
 }
@@ -47,13 +48,10 @@ h1 {
 
 .footer {
     background-color: #eaebeb;
-
     padding: 20px;
     margin: 0 auto;
-    position: fixed;
     text-align: center;
     width: 100%;
-    bottom: 0;
 }
 
 .swal-footer {

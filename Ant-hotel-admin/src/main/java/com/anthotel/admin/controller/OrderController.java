@@ -1,14 +1,12 @@
 package com.anthotel.admin.controller;
 
+import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
 import com.anthotel.admin.service.OrderService;
 import com.anthotel.common.base.ResultKit;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,27 +26,34 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("live")
-    public ResultKit getLiveOrderList() {
-
-        ResultKit<Object> resultKit = new ResultKit<>();
-        List<ReserveRecord> reserveRecords = orderService.fetchLiveOrderList();
-        System.out.println("reserveRecords = " + reserveRecords);
-        resultKit.setData(reserveRecords);
-        resultKit.setMessage("请求成功");
-        resultKit.setCode(2111);
-        return resultKit;
+    public ResultKit getLiveOrder(@RequestParam(value = "orderId", required = false) String id) {
+        if (id != null) {
+            ReserveRecord canteenOrder = orderService.getLivenOrder(id);
+            if (canteenOrder != null) {
+                return ResultKit.newSuccessResult(canteenOrder);
+            }
+        } else {
+            List<ReserveRecord> reserveRecords = orderService.fetchLiveOrderList();
+            return ResultKit.newSuccessResult(reserveRecords);
+        }
+        return ResultKit.newFailedResult("error");
     }
 
     @GetMapping("food")
-    public ResultKit getFoodOrderList() {
-
-        ResultKit<Object> resultKit = new ResultKit<>();
-        List<ReserveRecord> reserveRecords = orderService.fetchLiveOrderList();
-        System.out.println("reserveRecords = " + reserveRecords);
-        resultKit.setData(reserveRecords);
-        resultKit.setMessage("请求成功");
-        resultKit.setCode(2111);
-        return resultKit;
+    public ResultKit getFoodOrder(@RequestParam(value = "orderId", required = false) String id) {
+        System.out.println("id = " + id);
+        if (id != null) {
+            CanteenRecord canteenOrder = orderService.getCanteenOrder(id);
+            if (canteenOrder != null) {
+                return ResultKit.newSuccessResult(canteenOrder);
+            }
+        } else {
+            List<CanteenRecord> canteenRecords = orderService.fetchCanteenOrderList();
+            if (canteenRecords != null) {
+                return ResultKit.newSuccessResult(canteenRecords);
+            }
+        }
+        return ResultKit.newFailedResult("error");
     }
 
 }

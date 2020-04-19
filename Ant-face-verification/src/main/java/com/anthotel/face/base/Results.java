@@ -6,7 +6,7 @@ import com.anthotel.face.enums.ErrorCodeEnum;
 public class Results {
 
     public static <T> Result<T> newSuccessResult(T data) {
-        return newResult(data, "success", true,0);
+        return newResult(data, "success", true,200);
     }
 
     public static <T> Result<T> newFailedResult(String message) {

@@ -3,6 +3,8 @@ package com.anthotel.web.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.digest.MD5;
 import com.anthotel.common.base.ResultKit;
 import com.anthotel.face.base.Result;
 import com.anthotel.face.base.Results;
@@ -97,9 +99,11 @@ public class MainController {
                 UserFaceInfo userFaceInfo = result.getData();
                 System.out.println("userFaceInfo = " + userFaceInfo);
                 //人脸特征插入到数据库
-                userFaceInfo.setName("张国辉");
+                userFaceInfo.setName(formData.getName());
+                userFaceInfo.setPhoneNumber(formData.getPhone());
+                userFaceInfo.setUserId(SecureUtil.md5(formData.getUserId()));
+                System.out.println(userFaceInfo);
                 int i = faceInfoMapper.insertUserFaceInfo(userFaceInfo);
-                System.out.println("插入i = " + i);
                 return ResultKit.newSuccessResult(result.getMessage());
             }
             logger.info("faceAdd:" + formData.getName());

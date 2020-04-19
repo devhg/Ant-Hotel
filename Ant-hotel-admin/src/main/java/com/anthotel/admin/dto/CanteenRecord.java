@@ -2,7 +2,7 @@ package com.anthotel.admin.dto;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @Author: Devhui
@@ -12,15 +12,13 @@ import java.sql.Date;
  */
 
 @Data
-public class Canteen {
+public class CanteenRecord {
     private String userId;
+    private String orderId;
     private String name;
     private String food;
     private Float totalPrice;
-    private String coupon;
-    private String cost;
+    private Float coupon;
+    private Float cost;
     private Date onTime;
-    private Date offTime;
-    private String orderId;
-
 }

@@ -17,7 +17,7 @@ public class ResultKit<T> {
     private T data;
 
     public static <T> ResultKit<T> newSuccessResult(T data) {
-        return newResult(data, "success", 0);
+        return newResult(data, "success", 200);
     }
 
     public static <T> ResultKit<T> newFailedResult(String message) {

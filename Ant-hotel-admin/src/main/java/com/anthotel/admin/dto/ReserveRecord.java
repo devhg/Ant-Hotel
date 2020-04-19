@@ -2,7 +2,7 @@ package com.anthotel.admin.dto;
 
 import lombok.Data;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @Author: Devhui

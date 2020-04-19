@@ -7,4 +7,18 @@
         select * from reserve_record
     </select>
 
+    <select id="getLivenOrder" resultType="reserveRecord" parameterType="string">
+        select * from reserve_record where orderId=#{id}
+    </select>
+
+
+    <select id="fetchCanteenOrderList" resultType="canteenRecord">
+        select * from canteen_record
+    </select>
+
+    <select id="getCanteenOrder" resultType="canteenRecord" parameterType="string">
+        select * from canteen_record where orderId=#{id}
+    </select>
+
+
 </mapper>

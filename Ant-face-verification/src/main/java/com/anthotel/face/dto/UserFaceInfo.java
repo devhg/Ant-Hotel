@@ -9,19 +9,13 @@ import java.util.Date;
 @Data
 public class UserFaceInfo {
 
-    private Integer id;
+    private String userId;
 
     private Integer groupId;
 
     private String faceId;
 
     private String name;
-
-    private Integer age;
-
-    private String email;
-
-    private Short gender;
 
     private String phoneNumber;
 

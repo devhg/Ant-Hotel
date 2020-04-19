@@ -13,6 +13,7 @@ import lombok.Data;
 public class FormData {
     String name; // 姓名
     String userId; // 身份证号
+    String orderId; // 订单编号
     String address; // 地址
     String dateTo; // 身份证有效期至
     String phone; // 手机号

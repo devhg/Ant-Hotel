@@ -1,5 +1,6 @@
 package com.anthotel.admin.service.impl;
 
+import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
 import com.anthotel.admin.mapper.OrderMapper;
 import com.anthotel.admin.service.OrderService;
@@ -24,5 +25,20 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<ReserveRecord> fetchLiveOrderList() {
         return orderMapper.fetchLiveOrderList();
+    }
+
+    @Override
+    public ReserveRecord getLivenOrder(String id) {
+        return orderMapper.getLivenOrder(id);
+    }
+
+    @Override
+    public List<CanteenRecord> fetchCanteenOrderList() {
+        return orderMapper.fetchCanteenOrderList();
+    }
+
+    @Override
+    public CanteenRecord getCanteenOrder(String id) {
+        return orderMapper.getCanteenOrder(id);
     }
 }
