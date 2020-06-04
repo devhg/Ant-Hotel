@@ -31,7 +31,7 @@ public class HotelController {
     ResultKit getHotelList() {
         ResultKit<List> resultKit = new ResultKit<>();
         List<Hotel> hotels = hotelService.fetchHotelList();
-
+        System.out.println("hotels = " + hotels);
         if (hotels != null) {
             resultKit.setCode(200);
             resultKit.setMessage("获取成功");

@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anthotel.admin.mapper.RoomMapper">
+
+    <select id="fetchRoomList" resultType="roomInfo" parameterType="string">
+        select * from room_info
+        <if test="keyWords != null">
+            <bind name="pattern" value="'%' + keyWords + '%'"/>
+            where roomId LIKE #{pattern}
+        </if>
+    </select>
+
+</mapper>

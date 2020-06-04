@@ -17,4 +17,5 @@ public class HotelRoom {
     private Integer roomCount;
     private Float roomPrice;
     private Float hourPrice;
+    private Integer id;
 }

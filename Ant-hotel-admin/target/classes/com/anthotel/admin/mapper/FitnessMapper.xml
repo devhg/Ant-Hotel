@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anthotel.admin.mapper.FitnessMapper">
+    <select id="fetchFitnessList" resultType="com.anthotel.admin.dto.Fitness">
+        select * from fitness_record
+    </select>
+    <select id="searchFitness" resultType="com.anthotel.admin.dto.Fitness">
+        select * from fitness_record
+        where
+        1=1
+        <if test="roomId !='' and roomId!=null">
+            and roomId=#{roomId}
+        </if>
+        <if test="name !='' and name!=null">
+            and `name`=#{name}
+        </if>
+    </select>
+</mapper>

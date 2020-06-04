@@ -17,4 +17,10 @@ import java.util.List;
 @Repository
 public interface RoomMapper {
     List<RoomInfo> fetchRoomList(String keyWords);
+
+    int addRoom(RoomInfo roomInfo);
+
+    int deleteRoom(String roomId);
+
+    int updateRoom(RoomInfo roomInfo);
 }

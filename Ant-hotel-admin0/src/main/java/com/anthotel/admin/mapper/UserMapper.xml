@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anthotel.admin.mapper.UserMapper">
+
+    <select id="fetchUserList" resultType="userItem">
+        select * from room_live_record
+    </select>
+
+    <select id="fetchInOutRecord" resultType="inOutRecord">
+        select * from in_out_record
+    </select>
+
+</mapper>

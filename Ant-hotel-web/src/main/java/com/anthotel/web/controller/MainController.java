@@ -5,6 +5,7 @@ import cn.hutool.core.codec.Base64;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.digest.MD5;
+import com.anthotel.admin.mapper.OrderMapper;
 import com.anthotel.common.base.ResultKit;
 import com.anthotel.face.base.Result;
 import com.anthotel.face.base.Results;
@@ -53,6 +54,9 @@ public class MainController {
 
     @Autowired
     private FaceInfoMapper faceInfoMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
 
     @GetMapping("welcome")
@@ -104,6 +108,7 @@ public class MainController {
                 userFaceInfo.setUserId(SecureUtil.md5(formData.getUserId()));
                 System.out.println(userFaceInfo);
                 int i = faceInfoMapper.insertUserFaceInfo(userFaceInfo);
+                orderMapper.updateStatus(formData.getOrderId());
                 return ResultKit.newSuccessResult(result.getMessage());
             }
             logger.info("faceAdd:" + formData.getName());

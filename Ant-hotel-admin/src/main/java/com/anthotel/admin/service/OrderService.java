@@ -2,6 +2,7 @@ package com.anthotel.admin.service;
 
 import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
+import com.anthotel.admin.dto.UserSearch;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface OrderService {
     List<CanteenRecord> fetchCanteenOrderList();
 
     CanteenRecord getCanteenOrder(String id);
+
+    List<ReserveRecord> liveSearch(UserSearch userSearch);
+
+    List<CanteenRecord> foodSearch(UserSearch userSearch);
 }

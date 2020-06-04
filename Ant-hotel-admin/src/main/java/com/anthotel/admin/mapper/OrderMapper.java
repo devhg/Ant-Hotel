@@ -2,6 +2,7 @@ package com.anthotel.admin.mapper;
 
 import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
+import com.anthotel.admin.dto.UserSearch;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +23,10 @@ public interface OrderMapper {
     List<CanteenRecord> fetchCanteenOrderList();
 
     CanteenRecord getCanteenOrder(String id);
+
+    List<ReserveRecord> liveSearch(UserSearch userSearch);
+
+    List<CanteenRecord> foodSearch(UserSearch userSearch);
+
+    int updateStatus(String id);
 }

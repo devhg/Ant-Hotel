@@ -29,4 +29,19 @@ public class RoomServiceImpl implements RoomService {
     public List<RoomInfo> fetchRoomList(String keyWords) {
         return roomMapper.fetchRoomList(keyWords);
     }
+
+    @Override
+    public int addRoom(RoomInfo roomInfo){
+        return roomMapper.addRoom(roomInfo);
+    }
+
+    @Override
+    public int deleteRoom(String roomId) {
+        return roomMapper.deleteRoom(roomId);
+    }
+
+    @Override
+    public int updateRoom(RoomInfo roomInfo) {
+        return roomMapper.updateRoom(roomInfo);
+    }
 }

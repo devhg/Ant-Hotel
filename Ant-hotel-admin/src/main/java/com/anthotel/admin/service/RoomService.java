@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface RoomService {
     List<RoomInfo> fetchRoomList(String keyWords);
+
+    int addRoom(RoomInfo roomInfo);
+
+    int deleteRoom(String roomId);
+
+    int updateRoom(RoomInfo roomInfo);
 }

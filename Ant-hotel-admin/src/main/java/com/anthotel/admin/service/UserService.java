@@ -2,8 +2,10 @@ package com.anthotel.admin.service;
 
 import com.anthotel.admin.dto.InOutRecord;
 import com.anthotel.admin.dto.UserItem;
+import com.anthotel.admin.dto.UserSearch;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Devhui
@@ -15,4 +17,12 @@ public interface UserService {
     List<UserItem> fetchUserList();
 
     List<InOutRecord> fetchInOutRecord();
+
+    List<UserItem> userSearch(UserSearch userSearch);
+
+    List<InOutRecord> inoutSearch(UserSearch userSearch);
+
+    int insert(Map<String,Object> map);
+
+    UserItem getOneUser(String orderId);
 }

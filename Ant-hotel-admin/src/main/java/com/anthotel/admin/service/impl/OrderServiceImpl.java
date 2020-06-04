@@ -2,6 +2,7 @@ package com.anthotel.admin.service.impl;
 
 import com.anthotel.admin.dto.CanteenRecord;
 import com.anthotel.admin.dto.ReserveRecord;
+import com.anthotel.admin.dto.UserSearch;
 import com.anthotel.admin.mapper.OrderMapper;
 import com.anthotel.admin.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,15 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public CanteenRecord getCanteenOrder(String id) {
         return orderMapper.getCanteenOrder(id);
+    }
+
+    @Override
+    public List<ReserveRecord> liveSearch(UserSearch userSearch) {
+        return orderMapper.liveSearch(userSearch);
+    }
+
+    @Override
+    public List<CanteenRecord> foodSearch(UserSearch userSearch) {
+        return orderMapper.foodSearch(userSearch);
     }
 }

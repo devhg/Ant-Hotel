@@ -5,10 +5,12 @@ import com.anthotel.admin.mapper.OrderMapper;
 import com.anthotel.admin.mapper.UserMapper;
 import com.anthotel.admin.service.OrderService;
 import com.anthotel.admin.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: Devhui
@@ -31,5 +33,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<InOutRecord> fetchInOutRecord() {
         return userMapper.fetchInOutRecord();
+    }
+
+    @Override
+    public List<UserItem> userSearch(UserSearch userSearch) {
+        return userMapper.userSearch(userSearch);
+    }
+
+    @Override
+    public List<InOutRecord> inoutSearch(UserSearch userSearch) {
+        return userMapper.inoutSearch(userSearch);
+    }
+
+    @Override
+    public int insert(Map<String,Object> map) {
+        return userMapper.insert(map);
+    }
+
+    @Override
+    public UserItem getOneUser(String orderId) {
+        return userMapper.getOneUser(orderId);
     }
 }

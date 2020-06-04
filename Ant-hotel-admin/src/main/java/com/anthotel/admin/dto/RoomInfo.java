@@ -1,5 +1,6 @@
 package com.anthotel.admin.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Data;
  */
 
 @Data
+@AllArgsConstructor
 public class RoomInfo {
     private String roomId;
     private Byte roomStatus;

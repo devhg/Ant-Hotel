@@ -14,6 +14,7 @@ import java.util.Date;
 @Data
 public class UserItem {
     private String orderId;
+    private String userId;
     private String name;
     private Date signTime;
     private Date leaveTime;
